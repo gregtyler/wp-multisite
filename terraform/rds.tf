@@ -18,10 +18,3 @@ resource "aws_rds_cluster" "wordpress" {
     timeout_action           = "RollbackCapacityChange"
   }
 }
-
-resource "aws_rds_cluster_instance" "wordpress_instances" {
-  identifier         = "wordpress"
-  cluster_identifier = "${aws_rds_cluster.wordpress.id}"
-  instance_class     = "db.t2.medium"
-  publicly_accessible = true
-}
