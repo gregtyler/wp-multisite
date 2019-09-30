@@ -3,7 +3,6 @@ resource "aws_rds_cluster" "wordpress" {
   engine              = "aurora"
   engine_version      = "5.6.10a"
   engine_mode         = "serverless"
-  availability_zones  = ["eu-west-2a", "eu-west-2b", "eu-west-2c"]
   database_name       = "wordpress"
   master_username     = jsondecode(data.aws_secretsmanager_secret_version.database_access.secret_string)["username"]
   master_password     = jsondecode(data.aws_secretsmanager_secret_version.database_access.secret_string)["password"]
